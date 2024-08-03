@@ -3,6 +3,9 @@ useHead({
   link: [
     { rel: 'icon', href: 'img/nara-logo-white-bg.png'},
   ],
+  htmlAttrs: {
+    lang: 'en'
+  }
 })
 useServerHead({
     bodyAttrs: {
@@ -13,6 +16,7 @@ const typedText = ref('')
 const fullText = ["Hi there, I'm ", "Nara"]
 const pauseDuration = 500
 const isTypingFinished = ref(false)
+const isGlobeLoading = ref(true)
 
 onMounted(() => {
   let partIndex = 0
@@ -67,7 +71,7 @@ const scrollToSection = (sectionId: string) => {
         </h1>
         <p class="text-xl mb-8 text-text-secondary">Problem-solver at heart, driven by technology's potential for impact. My diverse startup and enterprise experience has honed my ability to tackle complex tech and business challenges, turning ideas into practical solutions</p>
         <div class="flex justify-center space-x-4">
-          <button @click="scrollToSection('timeline')" class="bg-accent text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-secondary transition-colors duration-200">
+          <button @click="scrollToSection('timeline')" class="bg-accent text-black px-8 py-3 rounded-lg text-lg font-semibold hover:bg-secondary transition-colors duration-200">
             See My Journey
           </button>
           <button @click="scrollToSection('contact')" class="bg-black text-accent border-2 border-accent px-8 py-3 rounded-lg text-lg font-semibold hover:bg-accent hover:text-white transition-colors duration-200">
@@ -78,9 +82,14 @@ const scrollToSection = (sectionId: string) => {
     </div>
     <main class="container mx-auto px-4 content-wrapper">
       <Timeline id="timeline"/>
-      <client-only>
-        <Globe />
-      </client-only>
+      <div class="relative w-full h-[500px]"> 
+        <client-only>
+          <Globe @loaded="isGlobeLoading = false" />
+        </client-only>
+        <div v-if="isGlobeLoading" class="absolute inset-0 flex items-center justify-center">
+          <Spinner />
+        </div>
+      </div>
       <Skills />
       <Contact />
     </main>

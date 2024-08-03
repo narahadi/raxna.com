@@ -12,11 +12,20 @@ const socials = [
     <div class="container mx-auto text-center text-text-secondary px-4">
         <div class="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
             <p>&copy; 2024 Nara. All rights reserved.</p>
-            <div class="flex space-x-4">
-                <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank" rel="noopener noreferrer" class="text-text-secondary hover:text-accent transition-colors duration-200">
-                    <Icon :name="social.icon" size="24" />
-                </a>
-            </div>
+            <nav aria-label="Social media links">
+                <ul class="flex space-x-4 list-none p-0">
+                    <li v-for="social in socials" :key="social.name">
+                        <a :href="social.url" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="text-text-secondary hover:text-accent transition-colors duration-200"
+                           :aria-label="`Follow Nara on ${social.name}`">
+                            <Icon :name="social.icon" size="24" aria-hidden="true" />
+                            <span class="sr-only">{{ social.name }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </footer>

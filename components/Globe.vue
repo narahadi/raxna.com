@@ -2,6 +2,7 @@
 const globeContainer = ref<HTMLElement | null>(null)
 let globeInstance: any = null
 let resizeObserver: ResizeObserver | null = null
+const emit = defineEmits(['loaded'])
 
 onMounted(async () => {
   if (process.client && globeContainer.value) {
@@ -63,6 +64,7 @@ onMounted(async () => {
       }
     })
     resizeObserver.observe(globeContainer.value)
+    emit('loaded')
   }
 })
 
@@ -91,5 +93,8 @@ function getCenterCoordinates(cities: { lat: number; lng: number }[]) {
 </script>
 
 <template>
-<div ref="globeContainer" class="w-full h-full flex items-center justify-center"/>
+<div class="relative w-full h-full flex items-center justify-center">
+    <Spinner v-if="isLoading" />
+    <div ref="globeContainer" class="w-full h-full" :class="{ 'invisible': isLoading }" />
+</div>
 </template>
