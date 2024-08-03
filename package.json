@@ -10,12 +10,15 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/leaflet": "^1.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "globe.gl": "^2.32.5",
     "nuxt": "^3.12.4",
     "vue": "latest"
   },
   "devDependencies": {
+    "@nuxt/fonts": "^0.7.1",
     "@nuxtjs/tailwindcss": "^6.12.1",
+    "@vesp/nuxt-fontawesome": "^1.0.4",
     "nuxt-particles": "^0.3.0"
   }
 }
