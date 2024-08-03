@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'nuxt-particles',
     '@nuxt/fonts',
-    '@vesp/nuxt-fontawesome'
+    '@nuxt/icon'
   ],
   app: {
     head: {
