@@ -53,8 +53,8 @@ onMounted(async () => {
     globeInstance.controls().enableZoom = false
     globeInstance.controls().autoRotate = true
     globeInstance.controls().autoRotateSpeed = 0.5
-    globeInstance.controls().minDistance = 270
-    globeInstance.controls().maxDistance = 270
+    globeInstance.controls().minDistance = 300
+    globeInstance.controls().maxDistance = 300
 
     resizeObserver = new ResizeObserver(() => {
       if (globeContainer.value) {
