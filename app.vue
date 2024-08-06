@@ -84,7 +84,7 @@ const scrollToSection = (sectionId: string) => {
       <Timeline id="timeline"/>
       <div class="relative w-full h-[500px]"> 
         <client-only>
-          <Globe @loaded="isGlobeLoading = false" />
+          <LazyGlobe @loaded="isGlobeLoading = false" />
         </client-only>
         <div v-if="isGlobeLoading" class="absolute inset-0 flex items-center justify-center">
           <Spinner />

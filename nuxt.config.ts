@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'nuxt-particles',
     '@nuxt/fonts',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    'nuxt-gtag'
   ],
   app: {
     head: {
@@ -14,7 +15,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       title: 'Nara - Technologist',
       meta: [
-        { name: 'description', content: 'Nara - Empowering businesses through technology' }
+        { name: 'description', content: 'Nara - Technologist' }
       ],
     }
   },
@@ -41,9 +42,7 @@ export default defineNuxtConfig({
       }
     }
   },
-  fontawesome: {
-    icons: {
-      solid: ['robot','chart-line','chess','tasks','code','cloud']
-    }
+  gtag: {
+    id: 'G-2QV6WW1KFF'
   }
 })

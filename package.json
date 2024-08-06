@@ -12,11 +12,13 @@
   "dependencies": {
     "globe.gl": "^2.32.5",
     "nuxt": "^3.12.4",
+    "nuxt-gtag": "^2.1.0",
     "vue": "latest"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.1.67",
     "@nuxt/fonts": "^0.7.1",
-    "@nuxt/icon": "^1.4.4",
+    "@nuxt/icon": "^1.4.5",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt-particles": "^0.3.0"
   }
