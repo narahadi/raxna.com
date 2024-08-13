@@ -63,19 +63,25 @@ const timelineItems = [
 <section id="experience" class="mb-16 relative">
     <h2 class="text-4xl font-bold mb-12 text-accent text-center">My Journey</h2>
     <div class="timeline relative max-w-6xl mx-auto">
-    <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-accent transform -translate-x-1/2"></div>
-    <div v-for="(item, index) in timelineItems" :key="index" 
-            class="timeline-item relative mb-24 flex items-center">
-        <div class="absolute left-1/2 w-6 h-6 bg-accent rounded-full transform -translate-x-1/2 border-2 border-bg-white"></div>
-        <div :class="[
-        'w-[calc(50%-2rem)] bg-bg-secondary p-6 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/20',
-        index % 2 === 0 ? 'ml-auto pl-10' : 'mr-auto pr-10'
-        ]">
-        <h3 class="text-2xl font-bold mb-3 text-accent">{{ item.title }}</h3>
-        <p class="text-base text-text mb-4 leading-relaxed">{{ item.description }}</p>
-        <p class="text-sm text-text-secondary font-medium">{{ item.date }}</p>
+        <!-- Vertical line -->
+        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-accent md:left-1/2 md:-translate-x-1/2"></div>
+        
+        <div v-for="(item, index) in timelineItems" :key="index" 
+              class="timeline-item relative mb-24 flex items-center">
+            <!-- Bullet point -->
+            <div class="absolute left-4 w-6 h-6 bg-accent rounded-full border-2 border-bg-white -translate-x-1/2 md:left-1/2"></div>
+            
+            <!-- Content card -->
+            <div :class="[
+                'ml-12 w-[calc(100%-3rem)] bg-bg-secondary p-6 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/20',
+                'md:w-[calc(50%-3rem)]',
+                index % 2 === 0 ? 'md:ml-auto md:pl-6' : 'md:mr-auto md:pr-6 md:ml-0'
+            ]">
+                <h3 class="text-2xl font-bold mb-3 text-accent">{{ item.title }}</h3>
+                <p class="text-base text-text mb-4 leading-relaxed">{{ item.description }}</p>
+                <p class="text-sm text-text-secondary font-medium">{{ item.date }}</p>
+            </div>
         </div>
-    </div>
     </div>
 </section>
 </template>
